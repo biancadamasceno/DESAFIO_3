@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/formstyle.css">
+    <title>Formulário</title>
+</head>
+<body>
+    <form>
+    <main>
+        <div class="seta1"> 
+            <img class="seta" src="assets/seta.png" alt="Seta Voltar"> 
+            <a href="index.html" >Voltar</a> 
+        </div>
+        
+
+        <section class="conteudo_formulario">
+            <h1 class="titulo_formulario">Formulário de inscrição</h1> 
+            <p class="subtitulo">Preencha os dados abaixo para fazer sua inscrição no Programa Trilhas.</p>
+
+            <section class="section1">
+                <h4>Informações do participante</h4>
+                <label>Nome completo</label>
+                <input type="text" id="nome" placeholder="Digite seu nome completo" class="caixa_texto"> <br><br>
+                <span class="error"></span></span>
+                
+                <label>Data de nascimento</label> 
+                <input type="date" id="data" class="caixa_texto"><br><br>
+              
+                <label>CPF</label>
+                <input type="text" id="numCpf" placeholder="Digite seu CPF" class="caixa_texto" maxlength="11"><br><br>
+              
+                <div class="genero">
+                    <label for="genero">Gênero:</label>
+                        <select id="genero" name="genero" required>
+                        <option value="" disabled selected>Selecione seu gênero</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outro">Outro</option>
+                        </select>
+
+                </div><br>
+                
+                <label>E-mail</label> 
+                <input type="email"  id="email" placeholder="Digite seu e-mail" class="caixa_texto"><br><br>
+                
+
+                <label>Telefone</label> 
+                <input type="tel" id="telefone" pattern="\d{11}" maxlength="11" placeholder="Digite seu telefone" class="caixa_texto"><br><br>
+                 
+
+                <label>Documento de Identidade (PDF):</label>
+                <label class="upload-box">
+                    <img src="assets/image.png" alt="Ícone de Upload">
+                    <p>Clique aqui para selecionar o arquivo</p>
+                    <input type="file" id="documentoIdentidade" accept="application/pdf" required>
+                </label>
+            </section>
+
+            <section class="section2">
+                <h4>Endereço Residencial</h4>
+                <label>CEP</label> 
+                <input type="number" id="cep" pattern="\d{8}" maxlength="8" minlength="8" placeholder="Qual seu CEP?" class="caixa_texto"> <br><br>
+                
+                
+                <div class="container3">
+                    <div class="campo">
+                        <label for="rua">Rua</label>
+                        <input type="text" id="rua" placeholder="Como se chama sua rua?" class="rua">
+                        
+                    </div>
+                    <div class="campo">
+                        <label for="numero">Número</label>
+                        <input type="number" id="numero" placeholder="Número residencial" class="numero"> <br> 
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="container4"> 
+                    <div class="campo2"> 
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" placeholder="Como se chama sua cidade?" class="cidade">
+                    </div>
+                    <div class="campo2"> 
+                        <label for="estado">Estado (UF)</label>
+                        <input type="text" id="estado" pattern="[A-Z {2}]" maxlength="2" minlength="2" placeholder="Qual seu estado?" class="estado">
+                    </div>
+                </div> <br>
+                
+                <label>Comprovante de residência (PDF):</label>
+                <label class="upload-box">
+                    <img src="assets/image.png" alt="Ícone de Upload">
+                    <p>Clique aqui para selecionar o arquivo</p>
+                    <input type="file" id="comprovanteResidencia" accept="application/pdf" required>
+                </label>
+            </section>
+
+            <section class="section3">
+                <h4>Trilhas de aprendizagem</h4>
+                <p id="fonte_subtitulo">Selecione apenas uma trilha</p> <br><br>
+                <div class="container">
+                    <div class="trilhas">
+                        <div class="caixa_1_2">
+                            <label class="trilha selected">
+                                <input type="radio" name="trilha" checked>
+                                <img src="assets/frontend.png" alt="Front-end">
+                                Programação Front-end
+                            </label> 
+                            <label class="trilha">
+                                <input type="radio" name="trilha">
+                                <img src="assets/backend.png" alt="Back-end">
+                                Programação Back-end
+                            </label>
+                        </div>
+                        <div class="caixa_3_4">
+                            <label class="trilha">
+                                <input type="radio" name="trilha">
+                                <img src="assets/jogos.png" alt="Jogos">
+                                Programação de Jogos
+                            </label> 
+                            <label class="trilha">
+                                <input type="radio" name="trilha">
+                                <img src="assets/design.png" alt="Design">
+                                Design e Experiência
+                            </label>
+                        </div>
+                        <div> 
+                            <label class="trilha">
+                                <input type="radio" name="trilha">
+                                <img src="assets/dados.png" alt="Ciência de Dados">
+                                Ciência de Dados
+                            </label>
+                        </div> 
+                    </div>
+                </div><br><br>
+                
+                <input type="checkbox"> <p1>Declaro que li e concordo com os <strong>Termos e Condições</strong> e com a <strong>Política de Privacidade.</strong></p1> <br><br><br>
+                
+            </section>
+
+            <section class="botoes"> 
+                <button type="button" id="botaoSalvar" class="botao-salvar">Salvar</button>
+                <button class="botao1">Cancelar</button> 
+                <button class="botao2" onclick="inscrever()">Fazer inscrição</button>
+            </section>
+        </section>
+    </main>
+
+    <section class="imagem_ilustrativa">
+        <img class="imagem_ilustrativa__" src="assets/image1.png" alt="Imagem ilustrativa">
+        <img class="logo" src="assets/logo.png" alt="Logo Trilhas">
+    </section>
+    <script src="mainformulario.js"> </script>
+</form>
+</body>
+</html>

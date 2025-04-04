@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/loginstyle.css">
+    <script src="https://kit.fontawesome.com/fd2e3a0512.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+</head>
+<body>
+
+    <section class="elementos">
+        <form id="loginForm">
+            <h2>Login <i class="fa-solid fa-user-plus"></i></h2>
+
+            <div id="msgError"> </div>
+
+            <label id="userCpf" for="cpf">CPF</label> 
+            <input type="text" id="cpf" maxlength="11" placeholder=" " required class="login-box"> <br>
+            
+            <label id="userSenha" for="senha">Senha</label>
+            <input type="password" id="senha" placeholder=" " required class="login-box"> <br> 
+            
+            <button onclick="entrar ()" type="button">Entrar</button> <br>
+            
+            <p2>Ainda não possui cadastro? <a href="cadastro.html"><strong>Cadastre-se aqui</strong></a></p2>
+        </form>
+    </section>
+
+    <script src="mainlogin.js"></script>
+    
+</body>
+</html>
