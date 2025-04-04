@@ -55,6 +55,7 @@ async function inscrever() {
             cpf: cpf.value,
             email: email.value,
             telefone: telefone.value,
+            genero: genero.value,
             cep: cep.value,
             rua: rua.value,
             numero: numero.value,

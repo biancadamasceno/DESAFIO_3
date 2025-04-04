@@ -50,7 +50,7 @@ localStorage.setItem ('listaUser', JSON. stringify (listaUser))
         msgError.innerHTML=''
 
         console.log('Redirecionando para index.html...');
-        window.location.href = 'index.html';
+        window.location.href = 'login.html';
         
        
         
