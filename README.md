@@ -7,7 +7,7 @@ Após a autenticação, o usuário é redirecionado para um formulário de cadas
 
 <h1>Como roda-lo de forma local? </h1>
 
-<p1> O  usuario deverá possuir apenas um navegador de sua preferencia( Google ,Mozilla, Edge...) projeto está hospedado no Vercel ,
+<p1> O  usuario deverá possuir apenas um navegador de sua preferencia( Google ,Mozilla, Edge...). O projeto está hospedado no Vercel ,
 onde o usuário, com o link , poderá acessar o sistema de cadastro. .</p1>
 
 <h1>Tecnologias utilizadas</h1>
