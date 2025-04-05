@@ -1,4 +1,4 @@
-## Sobre nosso projeto! 
+ ## Sobre nosso projeto! 
 <h1> Em que consiste nosso projeto? </h1>
 
 <p1> Este projeto consiste em uma aplicação web simples que oferece uma interface de Login e Cadastro de usuários. 
@@ -22,7 +22,9 @@ onde o usuário, com o link , poderá acessar o sistema de cadastro. .</p1>
 
 <h1> Principais funcionalidades: </h1>
 
-<p1> Tela de Login com validação de campos.
+<p1> 
+
+✔Tela de Login com validação de campos.
 
 ✔ Tela de Cadastro de usuário com campos básicos (nome, e-mail, senha).
 
@@ -33,6 +35,12 @@ onde o usuário, com o link , poderá acessar o sistema de cadastro. .</p1>
 ✔Validação básica de formulário.
 
 ✔Feedback visual para o usuário (mensagens de sucesso/erro).</p1>
+
+
+<p1> Agradeçemos a todos que acompanharam este projeto, contribuíram com sugestões e nos apoiaram. Cada aprendizado aqui 
+construído é fruto de dedicação, colaboração e vontade de crescer na área da tecnologia. Agredecemos também a SECTI e FAPEMA por essa oportunidade
+maravilhosa de aprendizado.❤️
+</p1>
 
 
 
