@@ -22,6 +22,22 @@ onde o usuário, com o link , poderá acessar o sistema de cadastro. .</p1>
 
 <h1> Principais funcionalidades: </h1>
 
+<p1> Tela de Login com validação de campos.
+
+✔ Tela de Cadastro de usuário com campos básicos (nome, e-mail, senha).
+
+✔Redirecionamento automático para o formulário de cadastro geral após o login ou cadastro.
+
+✔Formulário de cadastro geral com campos adicionais (endereço, telefone, etc.).
+
+✔Validação básica de formulário.
+
+✔Feedback visual para o usuário (mensagens de sucesso/erro).</p1>
+
+
+
+
+
 
 
 
