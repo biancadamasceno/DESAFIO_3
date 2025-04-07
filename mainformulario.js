@@ -117,16 +117,6 @@ async function inscrever() {
         return true;
     }
 
-    // Função para validar outros campos
-    function validarCampoVazio(input, mensagem) {
-        if (input.value.trim() === "") {
-            mostrarErro(input, mensagem);
-            return false;
-        }
-        limparErro(input);
-        return true;
-    }
-
     // Botão salvar
     const botaoSalvar = document.getElementById("botaoSalvar");
 
@@ -166,10 +156,6 @@ async function inscrever() {
             estado.value = rascunho.estado || "";
             termos.checked = rascunho.termosAceitos || false;
 }
-
-    
-
-
 
     // Adiciona evento de clique ao botão de inscrição
     botaoInscricao.addEventListener("click", function (event) {
