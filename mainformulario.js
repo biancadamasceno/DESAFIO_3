@@ -44,7 +44,7 @@ window.inscrever = async function () {
         let dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario') || '[]');
         
         if (dadosUsuario.length > 0 && dadosUsuario[0].comprovante) {
-          //  abrirPDF(dadosUsuario[0].comprovante);
+    
         }
        
         // Adiciona novo usuário
@@ -226,11 +226,11 @@ window.inscrever = async function () {
 
         // Se todas as validações forem bem-sucedidas, exibir um resumo dos dados
         if (formularioValido) {
-            inscrever(); // Chama a função para salvar os dados no localStorage
             let resumo = `Confirme os dados antes de enviar:\n\nNome: ${nome.value}\nData de Nascimento: ${dataNascimento.value}\nCPF: ${cpf.value}\nE-mail: ${email.value} \nIdentidade: ${documentoIdentidade.value}
             \nComprovante: ${comprovanteResidencia.value}\nTelefone: ${telefone.value}\nCEP: ${cep.value}\nRua: ${rua.value}\nNúmero: ${numero.value}\nCidade: ${cidade.value}\nEstado: ${estado.value}\n\nClique em OK para confirmar.`;
             
             if (confirm(resumo)) {
+                inscrever(); // Chama a função para salvar os dados no localStorage
                 alert("Formulário enviado com sucesso!");
                 form.submit();
             }
