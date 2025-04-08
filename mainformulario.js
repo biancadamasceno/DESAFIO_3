@@ -1,26 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () { 
     // Seleciona os elementos do formulário
-    const form = document.getElementById("formulario");
-    const nome = document.getElementById("nome");
-    const dataNascimento = document.getElementById("data");
-    const cpf = document.getElementById("numCpf");
-    const email = document.getElementById("email");
-    const telefone = document.getElementById("telefone");
-    const cep = document.getElementById("cep");
-    const genero = document.getElementById("genero");
-    const rua = document.getElementById("rua");
-    const numero = document.getElementById("numero");
-    const cidade = document.getElementById("cidade");
-    const estado = document.getElementById("estado");
-    const termos = document.querySelector("input[type=checkbox]");
-    const documentoIdentidade = document.getElementById("documentoIdentidade");
-    const comprovanteResidencia = document.getElementById("comprovanteResidencia");
-    const botaoInscricao = document.querySelector(".botao2");
+    let form = document.getElementById("formulario");
+    let nome = document.getElementById("nome");
+    let dataNascimento = document.getElementById("data");
+    let cpf = document.getElementById("numCpf");
+    let email = document.getElementById("email");
+    let telefone = document.getElementById("telefone");
+    let cep = document.getElementById("cep");
+    let genero = document.getElementById("genero");
+    let rua = document.getElementById("rua");
+    let numero = document.getElementById("numero");
+    let cidade = document.getElementById("cidade");
+    let estado = document.getElementById("estado");
+    let termos = document.querySelector("input[type=checkbox]");
+    let documentoIdentidade = document.getElementById("documentoIdentidade");
+    let comprovanteResidencia = document.getElementById("comprovanteResidencia");
+    let botaoInscricao = document.querySelector(".botao2");
     
 // Função para converter arquivos para Base64
 function converterParaBase64(file) {
     return new Promise((resolve, reject) => {
-        const reader = new FileReader();
+        let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => resolve(reader.result);
         reader.onerror = (error) => reject(error);
@@ -32,11 +32,11 @@ function converterParaBase64(file) {
 window.inscrever = async function () {
     try {
         // Converte arquivos para Base64 (se existirem)
-        const identidadeBase64 = documentoIdentidade.files.length > 0 
+        let identidadeBase64 = documentoIdentidade.files.length > 0 
             ? await converterParaBase64(documentoIdentidade.files[0]) 
             : null;
 
-        const comprovanteBase64 = comprovanteResidencia.files.length > 0 
+        let comprovanteBase64 = comprovanteResidencia.files.length > 0 
             ? await converterParaBase64(comprovanteResidencia.files[0]) 
             : null;
 
@@ -96,7 +96,7 @@ window.inscrever = async function () {
 
     // Função para validar CPF (deve conter exatamente 11 números)
     function validarCPF() {
-        const cpfLimpo = cpf.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+        let cpfLimpo = cpf.value.replace(/\D/g, ""); // Remove caracteres não numéricos
         if (cpfLimpo.length !== 11) {
             mostrarErro(cpf, "CPF deve conter exatamente 11 dígitos.");
             return false;
@@ -107,7 +107,7 @@ window.inscrever = async function () {
 
     // Função para validar e-mail
     function validarEmail() {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular para validar e-mail
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular para validar e-mail
         if (!emailRegex.test(email.value.trim())) {
             mostrarErro(email, "Digite um e-mail válido (exemplo: email@email.com)");
             return false;
@@ -117,10 +117,10 @@ window.inscrever = async function () {
     }
 
     // Botão salvar
-    const botaoSalvar = document.getElementById("botaoSalvar");
+    let botaoSalvar = document.getElementById("botaoSalvar");
 
     botaoSalvar.addEventListener("click", function () {
-        const dadosSalvos = {
+        let dadosSalvos = {
             nome: nome.value,
             dataNascimento: dataNascimento.value,
             cpf: cpf.value,
@@ -140,7 +140,7 @@ window.inscrever = async function () {
 
     //Salva as informações preenchidas caso a página seja fechada
 
-    const rascunho = JSON.parse(localStorage.getItem("rascunhoFormulario"));
+    let rascunho = JSON.parse(localStorage.getItem("rascunhoFormulario"));
         if (rascunho) {
             nome.value = rascunho.nome || "";
             dataNascimento.value = rascunho.dataNascimento || "";
@@ -227,7 +227,7 @@ window.inscrever = async function () {
         // Se todas as validações forem bem-sucedidas, exibir um resumo dos dados
         if (formularioValido) {
             inscrever(); // Chama a função para salvar os dados no localStorage
-            const resumo = `Confirme os dados antes de enviar:\n\nNome: ${nome.value}\nData de Nascimento: ${dataNascimento.value}\nCPF: ${cpf.value}\nE-mail: ${email.value} \nIdentidade: ${documentoIdentidade.value}
+            let resumo = `Confirme os dados antes de enviar:\n\nNome: ${nome.value}\nData de Nascimento: ${dataNascimento.value}\nCPF: ${cpf.value}\nE-mail: ${email.value} \nIdentidade: ${documentoIdentidade.value}
             \nComprovante: ${comprovanteResidencia.value}\nTelefone: ${telefone.value}\nCEP: ${cep.value}\nRua: ${rua.value}\nNúmero: ${numero.value}\nCidade: ${cidade.value}\nEstado: ${estado.value}\n\nClique em OK para confirmar.`;
             
             if (confirm(resumo)) {
