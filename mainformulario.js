@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () { 
     // Seleciona os elementos do formulário
-    const form = document.querySelector(".conteudo_formulario");
+    const form = document.getElementById("formulario");
     const nome = document.getElementById("nome");
     const dataNascimento = document.getElementById("data");
     const cpf = document.getElementById("numCpf");
@@ -29,7 +29,7 @@ function converterParaBase64(file) {
 
 
 // Função para salvar os dados no localStorage
-async function inscrever() {
+window.inscrever = async function () {
     try {
         // Converte arquivos para Base64 (se existirem)
         const identidadeBase64 = documentoIdentidade.files.length > 0 
@@ -44,10 +44,9 @@ async function inscrever() {
         let dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario') || '[]');
         
         if (dadosUsuario.length > 0 && dadosUsuario[0].comprovante) {
-            abrirPDF(dadosUsuario[0].comprovante);
+          //  abrirPDF(dadosUsuario[0].comprovante);
         }
-        
-
+       
         // Adiciona novo usuário
         dadosUsuario.push({
             nome: nome.value,
@@ -68,7 +67,7 @@ async function inscrever() {
 
         // Salva os dados no localStorage
         localStorage.setItem("dadosUsuario", JSON.stringify(dadosUsuario));
-        alert("Dados salvos com sucesso!");
+       // alert("Dados salvos com sucesso!");
     } catch (error) {
         console.error("Erro ao salvar os arquivos:", error);
         alert("Ocorreu um erro ao processar os documentos. Tente novamente.");
