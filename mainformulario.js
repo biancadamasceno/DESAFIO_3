@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () { 
-    // Seleciona os elementos do formulário
     let form = document.getElementById("formulario");
     let nome = document.getElementById("nome");
     let dataNascimento = document.getElementById("data");
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let comprovanteResidencia = document.getElementById("comprovanteResidencia");
     let botaoInscricao = document.querySelector(".botao2");
     
-// Função para converter arquivos para Base64
 function converterParaBase64(file) {
     return new Promise((resolve, reject) => {
         let reader = new FileReader();
@@ -27,11 +25,8 @@ function converterParaBase64(file) {
     });
 }
 
-
-// Função para salvar os dados no localStorage
 window.inscrever = async function () {
     try {
-        // Converte arquivos para Base64 (se existirem)
         let identidadeBase64 = documentoIdentidade.files.length > 0 
             ? await converterParaBase64(documentoIdentidade.files[0]) 
             : null;
@@ -40,14 +35,12 @@ window.inscrever = async function () {
             ? await converterParaBase64(comprovanteResidencia.files[0]) 
             : null;
 
-        // Obtém os dados já armazenados no localStorage
         let dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario') || '[]');
         
         if (dadosUsuario.length > 0 && dadosUsuario[0].comprovante) {
     
         }
-       
-        // Adiciona novo usuário
+      
         dadosUsuario.push({
             nome: nome.value,
             dataNascimento: dataNascimento.value,
@@ -60,21 +53,18 @@ window.inscrever = async function () {
             numero: numero.value,
             cidade: cidade.value,
             estado: estado.value,
-            identidade: identidadeBase64,  // Salva o arquivo em Base64
-            comprovante: comprovanteBase64, // Salva o arquivo em Base64
+            identidade: identidadeBase64,  
+            comprovante: comprovanteBase64, 
             termosAceitos: termos.checked
         });
 
-        // Salva os dados no localStorage
         localStorage.setItem("dadosUsuario", JSON.stringify(dadosUsuario));
-       // alert("Dados salvos com sucesso!");
     } catch (error) {
         console.error("Erro ao salvar os arquivos:", error);
         alert("Ocorreu um erro ao processar os documentos. Tente novamente.");
     }
 }
 
-    // Função para exibir mensagens de erro
     function mostrarErro(input, mensagem) {
         let erroSpan = input.nextElementSibling;
         if (!erroSpan || !erroSpan.classList.contains("erro")) {
@@ -86,7 +76,6 @@ window.inscrever = async function () {
         erroSpan.style.color = "red";
     }
 
-    // Função para limpar mensagens de erro
     function limparErro(input) {
         let erroSpan = input.nextElementSibling;
         if (erroSpan && erroSpan.classList.contains("erro")) {
@@ -94,9 +83,8 @@ window.inscrever = async function () {
         }
     }
 
-    // Função para validar CPF (deve conter exatamente 11 números)
     function validarCPF() {
-        let cpfLimpo = cpf.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+        let cpfLimpo = cpf.value.replace(/\D/g, ""); 
         if (cpfLimpo.length !== 11) {
             mostrarErro(cpf, "CPF deve conter exatamente 11 dígitos.");
             return false;
@@ -105,9 +93,8 @@ window.inscrever = async function () {
         return true;
     }
 
-    // Função para validar e-mail
     function validarEmail() {
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular para validar e-mail
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email.value.trim())) {
             mostrarErro(email, "Digite um e-mail válido (exemplo: email@email.com)");
             return false;
@@ -116,7 +103,6 @@ window.inscrever = async function () {
         return true;
     }
 
-    // Botão salvar
     let botaoSalvar = document.getElementById("botaoSalvar");
 
     botaoSalvar.addEventListener("click", function () {
@@ -138,8 +124,6 @@ window.inscrever = async function () {
         alert("Informações salvas como rascunho!");
     });
 
-    //Salva as informações preenchidas caso a página seja fechada
-
     let rascunho = JSON.parse(localStorage.getItem("rascunhoFormulario"));
         if (rascunho) {
             nome.value = rascunho.nome || "";
@@ -156,11 +140,10 @@ window.inscrever = async function () {
             termos.checked = rascunho.termosAceitos || false;
 }
 
-    // Adiciona evento de clique ao botão de inscrição
     botaoInscricao.addEventListener("click", function (event) {
-        event.preventDefault(); // Impede o envio automático do formulário
+        event.preventDefault(); 
 
-        let formularioValido = true; // Flag para saber se está tudo certo
+        let formularioValido = true; 
 
         function verificarCampo(input, mensagem) {
             if (input.value.trim() === "") {
@@ -171,7 +154,6 @@ window.inscrever = async function () {
             }
         }
 
-        // Valida os campos do formulário
         verificarCampo(nome, "Nome é obrigatório.");
         verificarCampo(dataNascimento, "Data de nascimento é obrigatória.");
         verificarCampo(cpf, "CPF é obrigatório.");
@@ -183,7 +165,6 @@ window.inscrever = async function () {
         verificarCampo(cidade, "Cidade é obrigatória.");
         verificarCampo(estado, "Estado é obrigatório.");
 
-        // Valida o campo genero
         if (!genero.value) {
             mostrarErro(genero, "Gênero é obrigatório.");
             formularioValido = false;
@@ -191,8 +172,6 @@ window.inscrever = async function () {
             limparErro(genero);
         }
         
-      
-        // Valida os campos de envio dos documentos 
         if (!documentoIdentidade.files.length) {
             mostrarErro(documentoIdentidade, "Documento obrigatório.");
             formularioValido = false;
@@ -207,16 +186,14 @@ window.inscrever = async function () {
             limparErro(comprovanteResidencia);
         }
         
-        // Validação do e-mail
         if (!validarEmail()) {
             formularioValido = false;
         }
-        // Validação do CPF
+  
         if (!validarCPF()) {
             formularioValido = false;
         }        
 
-        // Validação do checkbox de termos
         if (!termos.checked) {
             mostrarErro(termos, "Você deve aceitar os termos.");
             formularioValido = false;
@@ -224,27 +201,24 @@ window.inscrever = async function () {
             limparErro(termos);
         }
 
-        // Se todas as validações forem bem-sucedidas, exibir um resumo dos dados
         if (formularioValido) {
             let resumo = `Confirme os dados antes de enviar:\n\nNome: ${nome.value}\nData de Nascimento: ${dataNascimento.value}\nCPF: ${cpf.value}\nE-mail: ${email.value} \nIdentidade: ${documentoIdentidade.value}
             \nComprovante: ${comprovanteResidencia.value}\nTelefone: ${telefone.value}\nCEP: ${cep.value}\nRua: ${rua.value}\nNúmero: ${numero.value}\nCidade: ${cidade.value}\nEstado: ${estado.value}\n\nClique em OK para confirmar.`;
             
             if (confirm(resumo)) {
-                inscrever(); // Chama a função para salvar os dados no localStorage
+                inscrever(); 
                 alert("Formulário enviado com sucesso!");
                 form.submit();
             }
         }
     });
 
-    // Adiciona um evento para limpar mensagens de erro enquanto o usuário digita
     document.querySelectorAll("input, select").forEach(input => {
         input.addEventListener("input", function () {
             limparErro(input);
         });
     });
 
-    // Para checkbox, escutamos mudanças
     termos.addEventListener("change", function () {
         limparErro(termos);
     });

@@ -3,10 +3,9 @@ function entrar() {
     let senha = document.querySelector('#senha');
     let msgError = document.querySelector('#msgError');
 
-    let listaUser = JSON.parse(localStorage.getItem('listaUser')) || []; // Se for null, vira []
+    let listaUser = JSON.parse(localStorage.getItem('listaUser')) || [];
 
-    let userValid = null; // Começa como null
-
+    let userValid = null; 
     listaUser.forEach((item) => {
         if (cpf.value === item.cpf && senha.value === item.senha) {
             userValid = {
@@ -23,7 +22,7 @@ function entrar() {
         localStorage.setItem('token', token);
         localStorage.setItem('userLogado', JSON.stringify(userValid));
 
-        window.location.href = 'forms.html'; // Redireciona após salvar o login
+        window.location.href = 'forms.html'; 
     } else {
         cpf.setAttribute('style', 'border-color: red');
         senha.setAttribute('style', 'border-color: red');

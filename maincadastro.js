@@ -14,20 +14,20 @@ let listaUse
 cpf.addEventListener('keyup', () => {
     if (cpf.value.length < 11) {
         labelCpf.setAttribute('style', 'color:red');
-        validCpf = false; // Agora está alterando a variável global
+        validCpf = false; 
     } else {
         labelCpf.setAttribute('style', 'color:green');
-        validCpf = true; // Agora está alterando a variável global
+        validCpf = true; 
     }
 });
 
 senha.addEventListener('keyup', () => {
-    if (senha.value.length < 6) { // Definindo um critério mínimo de segurança (6 caracteres)
+    if (senha.value.length < 6) { 
         labelSenha.setAttribute('style', 'color:red');
-        validSenha = false; // Agora está alterando a variável global
+        validSenha = false; 
     } else {
         labelSenha.setAttribute('style', 'color:green');
-        validSenha = true; // Agora está alterando a variável global
+        validSenha = true; 
     }
 });
 
